@@ -1,0 +1,6 @@
+C:\Users\Guido\Desktop\UTN\Programacion III\ULTIMO\tp-winform-equipo-2A\Data-Management\bin\Debug\Data-Management.dll
+C:\Users\Guido\Desktop\UTN\Programacion III\ULTIMO\tp-winform-equipo-2A\Data-Management\bin\Debug\Data-Management.pdb
+C:\Users\Guido\Desktop\UTN\Programacion III\ULTIMO\tp-winform-equipo-2A\Data-Management\obj\Debug\Data-Management.csproj.AssemblyReference.cache
+C:\Users\Guido\Desktop\UTN\Programacion III\ULTIMO\tp-winform-equipo-2A\Data-Management\obj\Debug\Data-Management.csproj.CoreCompileInputs.cache
+C:\Users\Guido\Desktop\UTN\Programacion III\ULTIMO\tp-winform-equipo-2A\Data-Management\obj\Debug\Data-Management.dll
+C:\Users\Guido\Desktop\UTN\Programacion III\ULTIMO\tp-winform-equipo-2A\Data-Management\obj\Debug\Data-Management.pdb
