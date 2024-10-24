@@ -23,11 +23,26 @@ namespace TpVoucher
 
             string VoucherNuevo = TbVoucher.Text;
 
-            if (VoucherCBD.ExisteVoucher(VoucherNuevo))
+            int ResultadoValidacion = VoucherCBD.ExisteVoucher(VoucherNuevo);
+
+            switch (ResultadoValidacion)
             {
-                Lbl1.Text = "SI RE";
+                case 2:
+                    // El código del voucher existe y FechaCanje es NULL
+                    Lbl1.Text = "VALIDO";
+                    break;
+
+                case 1:
+                    // El código del voucher existe pero FechaCanje no es NULL
+                    Lbl1.Text = "El Voucher ya ha sido canjeado.";
+                    break;
+
+                case 0:
+                default:
+                    // El código del voucher no existe
+                    Lbl1.Text = "El Voucher es inexistente.";
+                    break;
             }
-            else { Lbl1.Text = "no NO"; }
         }
     }
 }
