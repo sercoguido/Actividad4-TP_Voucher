@@ -15,22 +15,22 @@ namespace TpVoucher
     {
 
         /// <summary>
-        /// Control Tb1.
+        /// Control TbVoucher.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Tb1;
+        protected global::System.Web.UI.WebControls.TextBox TbVoucher;
 
         /// <summary>
-        /// Control Btn1.
+        /// Control BtnValidar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn1;
+        protected global::System.Web.UI.WebControls.Button BtnValidar;
 
         /// <summary>
         /// Control Lbl1.

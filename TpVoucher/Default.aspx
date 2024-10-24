@@ -11,8 +11,8 @@
 
 
 
-        <asp:TextBox ID="Tb1" runat="server"></asp:TextBox>
-        <asp:Button ID="Btn1" runat="server" OnClick="Btn1_Click" Text="Button" />
+        <asp:TextBox ID="TbVoucher" runat="server"></asp:TextBox>
+        <asp:Button ID="BtnValidar" runat="server" OnClick="BtnValidar_Click" Text="Button" />
         <asp:Label ID="Lbl1" runat="server" Text="Label"></asp:Label>
 
 
