@@ -30,6 +30,10 @@ namespace TpVoucher
                 case 2:
                     // El código del voucher existe y FechaCanje es NULL
                     Lbl1.Text = "VALIDO";
+
+                    //ENVÍO EL CODIGO DE VOUCHER POR SESSION
+                    Session.Add("Voucher", VoucherNuevo);
+                    Response.Redirect("About.aspx", false);
                     break;
 
                 case 1:

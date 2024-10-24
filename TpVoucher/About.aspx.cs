@@ -11,6 +11,10 @@ namespace TpVoucher
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string VoucherValidado;
+            VoucherValidado = Session["Voucher"] != null ? Session["Voucher"].ToString(): "";
+
+            Label1.Text = VoucherValidado;
 
         }
     }
