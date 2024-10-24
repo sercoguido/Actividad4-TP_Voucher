@@ -12,19 +12,25 @@ namespace TpVoucher
 {
     public partial class Contact : Page
     {
+        protected Articulo art;  // Hacer el artículo accesible en el .aspx
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Verifico si existe el parámetro en la URL
+            if (Request.QueryString["art"] != null)
+            {
+                // Extraer el código del artículo
+                string codigoArticulo = Request.QueryString["art"];
 
-            string VoucherValidado;
-            string CodigoPremio;
+                // Buscar el artículo usando el método Buscar
+                ArticuloCBD articuloCBD = new ArticuloCBD();
+                art = articuloCBD.Buscar(codigoArticulo);
 
-            VoucherValidado = Session["Voucher"] != null ? Session["Voucher"].ToString() : "";
-            CodigoPremio = Session["CodigoPremio"] != null ? Session["CodigoPremio"].ToString() : "";
-
-            LblCodigo.Text = VoucherValidado;
-            LblPremio.Text = CodigoPremio;
-
-
+            }
+            else
+            {
+                Response.Redirect("Premios.aspx", false);
+            }
         }
     }
 }

@@ -34,7 +34,7 @@
 
                     <p class="card-text"><%: art.Codigo %></p>
 
-        <asp:Button ID="BtnSiguiente" OnClick="BtnSiguiente_Click" runat="server" class="btn btn-primary col-12" Text="Elegir" />
+       <a href="Datos.aspx?art=<%= art.Codigo %>" class="btn btn-primary col-12">Elegir</a>
 
       </div>
     </div>
