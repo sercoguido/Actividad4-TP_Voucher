@@ -14,7 +14,7 @@
         
 <div class="row">
 
-    <div class="border rounded bg-light p-3">
+       <div class="border rounded bg-light p-3 mt-5">
         <div class="col-12 text-center mb-3">
             <h1 id="aspnetTitle">Canje Voucher</h1>
         </div>
@@ -33,7 +33,6 @@
 
 
 
-        <asp:GridView ID="Dgv1" runat="server"></asp:GridView>
 
     </main>
 

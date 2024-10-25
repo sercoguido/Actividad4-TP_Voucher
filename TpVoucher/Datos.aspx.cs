@@ -36,8 +36,20 @@ namespace TpVoucher
 
         protected void Btn_ValidaDni_Click(object sender, EventArgs e)
         {
+            string dniTexto = datos_dni.Text.Trim();
+
+            // Verificar que el DNI tenga al menos 5 caracteres
+            if (dniTexto.Length < 5)
+            {
+                // Si DNI es inválido por longitud
+                PanelAlertaCompletar.Visible = false;
+                PanelAlertaValido.Visible = false;
+                PanelAlertaNoValido.Visible = true; // Mostrar mensaje de alerta
+                return; // Salir del método si el DNI no es válido
+            }
+
             int dniVerifica;
-            bool esValido = int.TryParse(datos_dni.Text, out dniVerifica);
+            bool esValido = int.TryParse(dniTexto, out dniVerifica);
 
             if (esValido)
             {
@@ -47,16 +59,13 @@ namespace TpVoucher
                 if (existeDni)
                 {
                     // Si DNI está en la base de datos
-
-                    PanelAlertaCompletar.Visible = false; // Oculto el mensaje de alerta si estaba visible ed otro intento anteriormente
+                    PanelAlertaCompletar.Visible = false; // Oculto el mensaje de alerta si estbaa visible de otro intento anteriormente
                     PanelAlertaNoValido.Visible = false;
                     PanelAlertaValido.Visible = true;
 
-                    Cliente cliente = new Cliente();
+                    Cliente cliente = clienteCBD.BuscarPorDni(dniVerifica);
 
-                    cliente = clienteCBD.BuscarPorDni(dniVerifica);
-
-                    //Completo la información del formulario
+                    // Completo la información del formulario
                     datos_nombre.Text = cliente.Nombre;
                     datos_apellido.Text = cliente.Apellido;
                     datos_mail.Text = cliente.Email;
@@ -66,10 +75,10 @@ namespace TpVoucher
                 }
                 else
                 {
-                    // Si DNI no esta registardo
+                    // Si DNI no está registrado
                     PanelAlertaNoValido.Visible = false;
                     PanelAlertaValido.Visible = false;
-                    PanelAlertaCompletar.Visible = true; // Muestro mensaje de alerta
+                    PanelAlertaCompletar.Visible = true; 
                     datos_nombre.Text = "";
                     datos_apellido.Text = "";
                     datos_mail.Text = "";
@@ -80,10 +89,10 @@ namespace TpVoucher
             }
             else
             {
-                // Si hay algun error
+                // Si hay algún error
                 PanelAlertaCompletar.Visible = false;
                 PanelAlertaValido.Visible = false;
-                PanelAlertaNoValido.Visible = true; // Muestro mensaje de alerta
+                PanelAlertaNoValido.Visible = true;
                 datos_nombre.Text = "";
                 datos_apellido.Text = "";
                 datos_mail.Text = "";
@@ -103,7 +112,6 @@ namespace TpVoucher
             ValidacionEmail();
 
             ValidacionDatosYEnviar();
-
         }
 
 
@@ -242,7 +250,7 @@ namespace TpVoucher
                 string codigoPostal = datos_cp.Text.Trim();
 
                 string codigoArticulo = Request.QueryString["art"];
-                string voucher = Session["Voucher"]?.ToString(); 
+                string voucher = Session["Voucher"]?.ToString();
 
                 clienteCBD.InsertarCliente(documento, nombre, apellido, email, direccion, ciudad, codigoPostal);
 
@@ -252,9 +260,14 @@ namespace TpVoucher
                 if (!string.IsNullOrEmpty(voucher) && idArticulo > 0 && IdCliente > 0)
                 {
                     voucherCBD.ActualizarVoucher(voucher, IdCliente, idArticulo);
+                    // Aquí agregamos la redirección después de completar el proceso
+                    Response.Redirect("Succes.aspx", false);
+                    Response.End(); // Esto detiene la ejecución de la página actual
                 }
                 else
                 {
+                    // Manejo de errores si el voucher, idArticulo o IdCliente no son válidos
+                    // Puedes mostrar un mensaje de error si es necesario
                 }
             }
         }

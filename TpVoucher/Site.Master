@@ -65,7 +65,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</p>
+                <p>Sistema Canje Vouchers - Mi aplicación en ASP.NET, SQL - Guido Sercovich</p>
             </footer>
         </div>
     </form>

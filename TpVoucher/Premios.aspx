@@ -32,7 +32,6 @@
           <p class="card-text"><%: art.Descripcion %></p>
         </div>
 
-                    <p class="card-text"><%: art.Codigo %></p>
 
        <a href="Datos.aspx?art=<%= art.Codigo %>" class="btn btn-primary col-12">Elegir</a>
 

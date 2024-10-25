@@ -23,7 +23,7 @@ namespace TpVoucher
         protected void BtnSiguiente_Click(object sender, EventArgs e)
         {
             Button clickedButton = (Button)sender;
-            // Extraer el código del premio del ID del botón
+            // Extraigo el código del premio del ID del botón
             string codigoPremio = clickedButton.ID.Replace("codigo_", "");
 
             // Almaceno el código del premio en la session
