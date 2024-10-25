@@ -16,48 +16,67 @@
                 </div>
             </div>
 
-            <div class="card p-3 mt-4" style="width: 18rem;">
-                <div class="form-group mb-3">
-                    <label for="TextBox1" class="form-label">DNI</label>
-                    <asp:TextBox ID="datos_dni" runat="server" CssClass="form-control" />
-                    <asp:Label ID="LblInformacion" runat="server" Text="Label"></asp:Label>
-                </div>
-                <div class="form-group">
-                    <asp:Button ID="Btn_ValidaDni" OnClick="Btn_ValidaDni_Click" runat="server" Text="Validar DNI" CssClass="btn btn-primary col-12" />
-                </div>
+            
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+    <ContentTemplate>
+        <div class="card p-3 mt-4" style="width: 18rem;">
+            <div class="form-group mb-3">
+                <label for="TextBox1" class="form-label">DNI</label>
+                <asp:TextBox ID="datos_dni" runat="server" CssClass="form-control" />
             </div>
+            <div class="form-group">
+                <asp:Button ID="Btn_ValidaDni" OnClick="Btn_ValidaDni_Click" runat="server" Text="Validar DNI" CssClass="btn btn-primary col-12" />
+            </div>
+        </div>
+        <asp:Panel ID="PanelAlertaNoValido" runat="server" Visible="false" CssClass="alert alert-danger" role="alert">
+             Dni no válido !
+        </asp:Panel>
+        <asp:Panel ID="PanelAlertaCompletar" runat="server" Visible="false" CssClass="alert alert-primary" role="alert">
+             Por favor complete los datos:
+        </asp:Panel>
+        <asp:Panel ID="PanelAlertaValido" runat="server" Visible="false" CssClass="alert alert-success" role="alert">
+             Dni registrado !
+        </asp:Panel>
 
 
-              <div class="card p-4 mt-4" style="width: 24rem;">
-                <h4 class="text-center mb-4">Complete su Información</h4>
-                <div class="form-group mb-3">
-                    <label for="TextBoxNombre" class="form-label">Nombre</label>
-                    <asp:TextBox ID="TextBoxNombre" runat="server" CssClass="form-control" />
-                </div>
-                <div class="form-group mb-3">
-                    <label for="TextBoxApellido" class="form-label">Apellido</label>
-                    <asp:TextBox ID="TextBoxApellido" runat="server" CssClass="form-control" />
-                </div>
-                <div class="form-group mb-3">
-                    <label for="TextBoxEmail" class="form-label">Email</label>
-                    <asp:TextBox ID="TextBoxEmail" runat="server" CssClass="form-control" TextMode="Email" />
-                </div>
-                <div class="form-group mb-3">
-                    <label for="TextBoxDireccion" class="form-label">Dirección</label>
-                    <asp:TextBox ID="TextBoxDireccion" runat="server" CssClass="form-control" />
-                </div>
-                <div class="form-group mb-3">
-                    <label for="TextBoxCiudad" class="form-label">Ciudad</label>
-                    <asp:TextBox ID="TextBoxCiudad" runat="server" CssClass="form-control" />
-                </div>
-                <div class="form-group mb-3">
-                    <label for="TextBoxCP" class="form-label">Código Postal</label>
-                    <asp:TextBox ID="TextBoxCP" runat="server" CssClass="form-control" />
-                </div>
-                <div class="form-group text-center">
-                    <asp:Button ID="Btn_Submit" runat="server" Text="Enviar Información" CssClass="btn btn-primary col-12" />
-                </div>
+        
+
+
+        <div class="card p-4 mt-4" style="width: 24rem;">
+            <h4 class="text-center mb-4">Complete su Información</h4>
+            <div class="form-group mb-3">
+                <label for="TextBoxNombre" class="form-label">Nombre</label>
+                <asp:TextBox ID="datos_nombre" runat="server" CssClass="form-control" />
             </div>
+            <div class="form-group mb-3">
+                <label for="TextBoxApellido" class="form-label">Apellido</label>
+                <asp:TextBox ID="datos_apellido" runat="server" CssClass="form-control" />
+            </div>
+            <div class="form-group mb-3">
+                <label for="TextBoxEmail" class="form-label">Email</label>
+                <asp:TextBox ID="datos_mail" runat="server" CssClass="form-control" TextMode="Email" />
+            </div>
+            <div class="form-group mb-3">
+                <label for="TextBoxDireccion" class="form-label">Dirección</label>
+                <asp:TextBox ID="datos_direccion" runat="server" CssClass="form-control" />
+            </div>
+            <div class="form-group mb-3">
+                <label for="TextBoxCiudad" class="form-label">Ciudad</label>
+                <asp:TextBox ID="datos_ciudad" runat="server" CssClass="form-control" />
+            </div>
+            <div class="form-group mb-3">
+                <label for="TextBoxCP" class="form-label">Código Postal</label>
+                <asp:TextBox ID="datos_cp" runat="server" CssClass="form-control" />
+            </div>
+            <div class="form-group text-center">
+                <asp:Button ID="Btn_Submit" runat="server" Text="Enviar Información" CssClass="btn btn-primary col-12" />
+            </div>
+        </div>
+    </ContentTemplate>
+    <Triggers>
+        <asp:AsyncPostBackTrigger ControlID="Btn_ValidaDni" EventName="Click" />
+    </Triggers>
+</asp:UpdatePanel>
         </div>
     </main>
 </asp:Content>

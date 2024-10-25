@@ -15,6 +15,15 @@ namespace TpVoucher
     {
 
         /// <summary>
+        /// Control UpdatePanel1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+
+        /// <summary>
         /// Control datos_dni.
         /// </summary>
         /// <remarks>
@@ -22,15 +31,6 @@ namespace TpVoucher
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox datos_dni;
-
-        /// <summary>
-        /// Control LblInformacion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblInformacion;
 
         /// <summary>
         /// Control Btn_ValidaDni.
@@ -42,58 +42,85 @@ namespace TpVoucher
         protected global::System.Web.UI.WebControls.Button Btn_ValidaDni;
 
         /// <summary>
-        /// Control TextBoxNombre.
+        /// Control PanelAlertaNoValido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxNombre;
+        protected global::System.Web.UI.WebControls.Panel PanelAlertaNoValido;
 
         /// <summary>
-        /// Control TextBoxApellido.
+        /// Control PanelAlertaCompletar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxApellido;
+        protected global::System.Web.UI.WebControls.Panel PanelAlertaCompletar;
 
         /// <summary>
-        /// Control TextBoxEmail.
+        /// Control PanelAlertaValido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxEmail;
+        protected global::System.Web.UI.WebControls.Panel PanelAlertaValido;
 
         /// <summary>
-        /// Control TextBoxDireccion.
+        /// Control datos_nombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxDireccion;
+        protected global::System.Web.UI.WebControls.TextBox datos_nombre;
 
         /// <summary>
-        /// Control TextBoxCiudad.
+        /// Control datos_apellido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxCiudad;
+        protected global::System.Web.UI.WebControls.TextBox datos_apellido;
 
         /// <summary>
-        /// Control TextBoxCP.
+        /// Control datos_mail.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxCP;
+        protected global::System.Web.UI.WebControls.TextBox datos_mail;
+
+        /// <summary>
+        /// Control datos_direccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox datos_direccion;
+
+        /// <summary>
+        /// Control datos_ciudad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox datos_ciudad;
+
+        /// <summary>
+        /// Control datos_cp.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox datos_cp;
 
         /// <summary>
         /// Control Btn_Submit.

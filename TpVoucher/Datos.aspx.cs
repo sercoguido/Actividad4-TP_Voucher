@@ -47,20 +47,49 @@ namespace TpVoucher
                 if (existeDni)
                 {
                     // Si DNI está en la base de datos
-                    LblInformacion.Text = "El DNI ya está registrado!";
 
-                    clienteCBD.BuscarPorDni(dniVerifica);
+                    PanelAlertaCompletar.Visible = false; // Oculto el mensaje de alerta si estaba visible ed otro intento anteriormente
+                    PanelAlertaNoValido.Visible = false;
+                    PanelAlertaValido.Visible = true;
+
+                    Cliente cliente = new Cliente();
+
+                    cliente = clienteCBD.BuscarPorDni(dniVerifica);
+
+                    //Completo la información del formulario
+                    datos_nombre.Text = cliente.Nombre;
+                    datos_apellido.Text = cliente.Apellido;
+                    datos_mail.Text = cliente.Email;
+                    datos_direccion.Text = cliente.Direccion;
+                    datos_ciudad.Text = cliente.Ciudad;
+                    datos_cp.Text = cliente.CodigoPostal;
                 }
                 else
                 {
                     // Si DNI no esta registardo
-                    LblInformacion.Text = "El DNI NO está registrado!, por favor complete los datos:";
+                    PanelAlertaNoValido.Visible = false;
+                    PanelAlertaValido.Visible = false;
+                    PanelAlertaCompletar.Visible = true; // Muestro mensaje de alerta
+                    datos_nombre.Text = "";
+                    datos_apellido.Text = "";
+                    datos_mail.Text = "";
+                    datos_direccion.Text = "";
+                    datos_ciudad.Text = "";
+                    datos_cp.Text = "";
                 }
             }
             else
             {
                 // Si hay algun error
-                LblInformacion.Text = "Por favor ingrese un DNI válido.";
+                PanelAlertaCompletar.Visible = false;
+                PanelAlertaValido.Visible = false;
+                PanelAlertaNoValido.Visible = true; // Muestro mensaje de alerta
+                datos_nombre.Text = "";
+                datos_apellido.Text = "";
+                datos_mail.Text = "";
+                datos_direccion.Text = "";
+                datos_ciudad.Text = "";
+                datos_cp.Text = "";
             }
         }
     }
