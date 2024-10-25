@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Servicios;
 using Dominio;
+using Tp_Voucher.Clases;
 
 namespace TpVoucher
 {
@@ -30,6 +31,36 @@ namespace TpVoucher
             else
             {
                 Response.Redirect("Premios.aspx", false);
+            }
+        }
+
+        protected void Btn_ValidaDni_Click(object sender, EventArgs e)
+        {
+            int dniVerifica;
+            bool esValido = int.TryParse(datos_dni.Text, out dniVerifica);
+
+            if (esValido)
+            {
+                ClienteCBD clienteCBD = new ClienteCBD();
+                bool existeDni = clienteCBD.ValidarExistenciaDni(dniVerifica);
+
+                if (existeDni)
+                {
+                    // Si DNI está en la base de datos
+                    LblInformacion.Text = "El DNI ya está registrado!";
+
+                    clienteCBD.BuscarPorDni(dniVerifica);
+                }
+                else
+                {
+                    // Si DNI no esta registardo
+                    LblInformacion.Text = "El DNI NO está registrado!, por favor complete los datos:";
+                }
+            }
+            else
+            {
+                // Si hay algun error
+                LblInformacion.Text = "Por favor ingrese un DNI válido.";
             }
         }
     }
