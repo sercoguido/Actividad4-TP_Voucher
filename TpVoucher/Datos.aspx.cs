@@ -21,13 +21,12 @@ namespace TpVoucher
             // Verifico si existe el parámetro en la URL
             if (Request.QueryString["art"] != null)
             {
-                // Extraer el código del artículo
+                // Extraigo el código del artículo
                 string codigoArticulo = Request.QueryString["art"];
 
                 // Buscar el artículo usando el método Buscar
                 ArticuloCBD articuloCBD = new ArticuloCBD();
                 art = articuloCBD.Buscar(codigoArticulo);
-
             }
             else
             {
@@ -231,24 +230,35 @@ namespace TpVoucher
             if (!ErrorNombre.Visible && !ErrorApellido.Visible && !ErrorEmail.Visible &&
                 !ErrorDireccion.Visible && !ErrorCiudad.Visible && !ErrorCP.Visible)
             {
-                LblInformacion.Text = "Me cambiooo";
+                ClienteCBD clienteCBD = new ClienteCBD();
+                VoucherCBD voucherCBD = new VoucherCBD();
+
+                int documento = int.Parse(datos_dni.Text.Trim());
+                string nombre = datos_nombre.Text.Trim();
+                string apellido = datos_apellido.Text.Trim();
+                string email = datos_mail.Text.Trim();
+                string direccion = datos_direccion.Text.Trim();
+                string ciudad = datos_ciudad.Text.Trim();
+                string codigoPostal = datos_cp.Text.Trim();
+
+                string codigoArticulo = Request.QueryString["art"];
+                string voucher = Session["Voucher"]?.ToString(); 
+
+                clienteCBD.InsertarCliente(documento, nombre, apellido, email, direccion, ciudad, codigoPostal);
+
+                int idArticulo = voucherCBD.ObtenerIdArticuloPorCodigo(codigoArticulo);
+                int IdCliente = clienteCBD.ObtenerIdClientePorDNI(documento);
+
+                if (!string.IsNullOrEmpty(voucher) && idArticulo > 0 && IdCliente > 0)
+                {
+                    voucherCBD.ActualizarVoucher(voucher, IdCliente, idArticulo);
+                }
+                else
+                {
+                }
             }
-
-            ClienteCBD clienteCBD = new ClienteCBD();
-            VoucherCBD voucherCBD = new VoucherCBD();
-
-            int documento = int.Parse(datos_dni.Text.Trim());
-            string nombre = datos_nombre.Text.Trim();
-            string apellido = datos_apellido.Text.Trim();
-            string email = datos_mail.Text.Trim();
-            string direccion = datos_direccion.Text.Trim();
-            string ciudad = datos_ciudad.Text.Trim();
-            string codigoPostal = datos_cp.Text.Trim();
-
-            clienteCBD.InsertarCliente(documento, nombre, apellido, email, direccion, ciudad, codigoPostal);
-            InsertarVoucher(string codigo, int idCliente, int idArticulo)
         }
 
 
-        }
+    }
 }

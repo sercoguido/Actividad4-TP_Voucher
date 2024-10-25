@@ -28,6 +28,7 @@ namespace TpVoucher
 
             // Almaceno el código del premio en la session
             Session["CodigoPremio"] = codigoPremio;
+
         }
     }
 }
