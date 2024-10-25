@@ -43,35 +43,62 @@
 
 
         <div class="card p-4 mt-4" style="width: 24rem;">
-            <h4 class="text-center mb-4">Complete su Información</h4>
-            <div class="form-group mb-3">
-                <label for="TextBoxNombre" class="form-label">Nombre</label>
-                <asp:TextBox ID="datos_nombre" runat="server" CssClass="form-control" />
-            </div>
-            <div class="form-group mb-3">
-                <label for="TextBoxApellido" class="form-label">Apellido</label>
-                <asp:TextBox ID="datos_apellido" runat="server" CssClass="form-control" />
-            </div>
-            <div class="form-group mb-3">
-                <label for="TextBoxEmail" class="form-label">Email</label>
-                <asp:TextBox ID="datos_mail" runat="server" CssClass="form-control" TextMode="Email" />
-            </div>
-            <div class="form-group mb-3">
-                <label for="TextBoxDireccion" class="form-label">Dirección</label>
-                <asp:TextBox ID="datos_direccion" runat="server" CssClass="form-control" />
-            </div>
-            <div class="form-group mb-3">
-                <label for="TextBoxCiudad" class="form-label">Ciudad</label>
-                <asp:TextBox ID="datos_ciudad" runat="server" CssClass="form-control" />
-            </div>
-            <div class="form-group mb-3">
-                <label for="TextBoxCP" class="form-label">Código Postal</label>
-                <asp:TextBox ID="datos_cp" runat="server" CssClass="form-control" />
-            </div>
-            <div class="form-group text-center">
-                <asp:Button ID="Btn_Submit" runat="server" Text="Enviar Información" CssClass="btn btn-primary col-12" />
-            </div>
-        </div>
+    <h4 class="text-center mb-4">Complete su Información</h4>
+
+    <div class="form-group mb-3">
+        <label for="TextBoxNombre" class="form-label">Nombre</label>
+        <asp:TextBox ID="datos_nombre" runat="server" CssClass="form-control" />
+        <asp:Panel ID="ErrorNombre" runat="server" Visible="false" CssClass="alert alert-danger" role="alert">
+            <asp:Label ID="LblErrorNombre" runat="server" Text=""></asp:Label>
+        </asp:Panel>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="TextBoxApellido" class="form-label">Apellido</label>
+        <asp:TextBox ID="datos_apellido" runat="server" CssClass="form-control" />
+        <asp:Panel ID="ErrorApellido" runat="server" Visible="false" CssClass="alert alert-danger" role="alert">
+            <asp:Label ID="LblErrorApellido" runat="server" Text=""></asp:Label>
+        </asp:Panel>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="TextBoxEmail" class="form-label">Email</label>
+        <asp:TextBox ID="datos_mail" runat="server" CssClass="form-control" TextMode="Email" />
+        <asp:Panel ID="ErrorEmail" runat="server" Visible="false" CssClass="alert alert-danger" role="alert">
+            <asp:Label ID="LblErrorEmail" runat="server" Text=""></asp:Label>
+        </asp:Panel>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="TextBoxDireccion" class="form-label">Dirección</label>
+        <asp:TextBox ID="datos_direccion" runat="server" CssClass="form-control" />
+        <asp:Panel ID="ErrorDireccion" runat="server" Visible="false" CssClass="alert alert-danger" role="alert">
+            <asp:Label ID="LblErrorDireccion" runat="server" Text=""></asp:Label>
+        </asp:Panel>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="TextBoxCiudad" class="form-label">Ciudad</label>
+        <asp:TextBox ID="datos_ciudad" runat="server" CssClass="form-control" />
+        <asp:Panel ID="ErrorCiudad" runat="server" Visible="false" CssClass="alert alert-danger" role="alert">
+            <asp:Label ID="LblErrorCiudad" runat="server" Text=""></asp:Label>
+        </asp:Panel>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="TextBoxCP" class="form-label">Código Postal</label>
+        <asp:TextBox ID="datos_cp" runat="server" CssClass="form-control" />
+        <asp:Panel ID="ErrorCP" runat="server" Visible="false" CssClass="alert alert-danger" role="alert">
+            <asp:Label ID="LblErrorCP" runat="server" Text=""></asp:Label>
+        </asp:Panel>
+    </div>
+
+    <div class="form-group text-center">
+        <asp:Button ID="Btn_Submit" OnClick="Btn_Submit_Click" runat="server" Text="Participar!" CssClass="btn btn-primary col-12" />
+    </div>
+
+    <asp:Label ID="LblInformacion" runat="server" Text="Label"></asp:Label>
+</div>
     </ContentTemplate>
     <Triggers>
         <asp:AsyncPostBackTrigger ControlID="Btn_ValidaDni" EventName="Click" />

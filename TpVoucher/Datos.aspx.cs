@@ -92,5 +92,137 @@ namespace TpVoucher
                 datos_cp.Text = "";
             }
         }
+
+        protected void Btn_Submit_Click(object sender, EventArgs e)
+        {
+            ValidacionNombre();
+            ValidacionApellido();
+            ValidacionCiudad();
+            ValidacionCodigoPostal();
+            ValidacionDireccion();
+            ValidacionEmail();
+
+        }
+
+
+        public void ValidacionNombre()
+        {
+            string nombre = datos_nombre.Text.Trim();
+            ErrorNombre.Visible = false;
+            LblErrorNombre.Text = "";
+
+            if (nombre.Length < 3)
+            {
+                ErrorNombre.Visible = true;
+                LblErrorNombre.Text = "El nombre debe tener más de 3 caracteres.";
+            }
+            else if (nombre.Any(char.IsDigit))
+            {
+                ErrorNombre.Visible = true;
+                LblErrorNombre.Text = "El nombre no debe contener números.";
+            }
+
+            if (ErrorNombre.Visible)
+            {
+                return;
+            }
+        }
+
+        public void ValidacionApellido()
+        {
+            string apellido = datos_apellido.Text.Trim();
+            ErrorApellido.Visible = false;
+            LblErrorApellido.Text = "";
+
+            if (apellido.Length < 3)
+            {
+                ErrorApellido.Visible = true;
+                LblErrorApellido.Text = "El apellido debe tener más de 3 caracteres.";
+            }
+            else if (apellido.Any(char.IsDigit))
+            {
+                ErrorApellido.Visible = true;
+                LblErrorApellido.Text = "El apellido no debe contener números.";
+            }
+
+            if (ErrorApellido.Visible)
+            {
+                return;
+            }
+        }
+
+        public void ValidacionEmail()
+        {
+            string email = datos_mail.Text.Trim();
+            ErrorEmail.Visible = false;
+            LblErrorEmail.Text = "";
+
+            if (string.IsNullOrWhiteSpace(email) || !email.Contains("@"))
+            {
+                ErrorEmail.Visible = true;
+                LblErrorEmail.Text = "Mail Inválida";
+            }
+
+            if (ErrorEmail.Visible)
+            {
+                return;
+            }
+        }
+
+        public void ValidacionDireccion()
+        {
+            string direccion = datos_direccion.Text.Trim();
+            ErrorDireccion.Visible = false;
+            LblErrorDireccion.Text = "";
+
+            if (string.IsNullOrWhiteSpace(direccion) || direccion.Length < 3)
+            {
+                ErrorDireccion.Visible = true;
+                LblErrorDireccion.Text = "Dirección Inválida";
+            }
+
+            if (ErrorDireccion.Visible)
+            {
+                return;
+            }
+        }
+
+        public void ValidacionCiudad()
+        {
+            string ciudad = datos_ciudad.Text.Trim();
+            ErrorCiudad.Visible = false;
+            LblErrorCiudad.Text = "";
+
+            if (string.IsNullOrWhiteSpace(ciudad) || ciudad.Length < 3)
+            {
+                ErrorCiudad.Visible = true;
+                LblErrorCiudad.Text = "Ciudad Inválida";
+            }
+
+            if (ErrorCiudad.Visible)
+            {
+                return;
+            }
+        }
+
+        public void ValidacionCodigoPostal()
+        {
+            string codigoPostal = datos_cp.Text.Trim();
+            ErrorCP.Visible = false;
+            LblErrorCP.Text = "";
+
+            if (string.IsNullOrWhiteSpace(codigoPostal) || codigoPostal.Length < 4)
+            {
+                ErrorCP.Visible = true;
+                LblErrorCP.Text = "Codigo Postal Inválido";
+            }
+
+            if (ErrorCP.Visible)
+            {
+                return;
+            }
+        }
+
+
     }
 }
