@@ -2,11 +2,10 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main aria-labelledby="title">
-        <h2 id="title"><%: Title %>.</h2>
-       
 
 
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+<div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
    <% foreach (Articulo art in ListaArticulo) { %>
     <div class="col">
       <div class="card">

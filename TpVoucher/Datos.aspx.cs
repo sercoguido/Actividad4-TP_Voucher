@@ -257,17 +257,15 @@ namespace TpVoucher
                 int idArticulo = voucherCBD.ObtenerIdArticuloPorCodigo(codigoArticulo);
                 int IdCliente = clienteCBD.ObtenerIdClientePorDNI(documento);
 
+
                 if (!string.IsNullOrEmpty(voucher) && idArticulo > 0 && IdCliente > 0)
                 {
                     voucherCBD.ActualizarVoucher(voucher, IdCliente, idArticulo);
-                    // Aquí agregamos la redirección después de completar el proceso
-                    Response.Redirect("Succes.aspx", false);
-                    Response.End(); // Esto detiene la ejecución de la página actual
+                    Response.Redirect("Succes.aspx", false);//ESTO NO ESTARÍA FUNCIONANDO
+
                 }
                 else
                 {
-                    // Manejo de errores si el voucher, idArticulo o IdCliente no son válidos
-                    // Puedes mostrar un mensaje de error si es necesario
                 }
             }
         }
