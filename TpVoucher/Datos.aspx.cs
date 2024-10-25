@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using Servicios;
 using Dominio;
 using Tp_Voucher.Clases;
+using System.Xml.Linq;
 
 namespace TpVoucher
 {
@@ -101,6 +102,8 @@ namespace TpVoucher
             ValidacionCodigoPostal();
             ValidacionDireccion();
             ValidacionEmail();
+
+            ValidacionDatosYEnviar();
 
         }
 
@@ -223,6 +226,29 @@ namespace TpVoucher
             }
         }
 
+        public void ValidacionDatosYEnviar()
+        {
+            if (!ErrorNombre.Visible && !ErrorApellido.Visible && !ErrorEmail.Visible &&
+                !ErrorDireccion.Visible && !ErrorCiudad.Visible && !ErrorCP.Visible)
+            {
+                LblInformacion.Text = "Me cambiooo";
+            }
 
-    }
+            ClienteCBD clienteCBD = new ClienteCBD();
+            VoucherCBD voucherCBD = new VoucherCBD();
+
+            int documento = int.Parse(datos_dni.Text.Trim());
+            string nombre = datos_nombre.Text.Trim();
+            string apellido = datos_apellido.Text.Trim();
+            string email = datos_mail.Text.Trim();
+            string direccion = datos_direccion.Text.Trim();
+            string ciudad = datos_ciudad.Text.Trim();
+            string codigoPostal = datos_cp.Text.Trim();
+
+            clienteCBD.InsertarCliente(documento, nombre, apellido, email, direccion, ciudad, codigoPostal);
+            InsertarVoucher(string codigo, int idCliente, int idArticulo)
+        }
+
+
+        }
 }

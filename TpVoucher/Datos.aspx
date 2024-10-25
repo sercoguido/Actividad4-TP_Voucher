@@ -97,7 +97,7 @@
         <asp:Button ID="Btn_Submit" OnClick="Btn_Submit_Click" runat="server" Text="Participar!" CssClass="btn btn-primary col-12" />
     </div>
 
-    <asp:Label ID="LblInformacion" runat="server" Text="Label"></asp:Label>
+    <asp:Label ID="LblInformacion" runat="server" Text="ESA"></asp:Label>
 </div>
     </ContentTemplate>
     <Triggers>
